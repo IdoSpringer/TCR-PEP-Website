@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <! link href="{{ url_for('static', filename='floating-labels.css') }}" rel="stylesheet">
-    <link href="/TCR-PEP-Website/static/floating-labels.css" rel="stylesheet">
+    <link href="/Tcell_predictor/static/floating-labels.css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Home Page</title>
     <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
@@ -23,15 +23,15 @@
                     <ul class="navbar-nav mr-auto">
 
                         <li class="nav-item">
-                        <a class="nav-link" href="/TCR-PEP-Website/templates/home.html/">Home</a>
+                        <a class="nav-link" href="/Tcell_predictor/home/">Home</a>
                         </li>
 
                         <li class="nav-item">
-                        <a class="nav-link" href="/TCR-PEP-Website/templates/help.html/">Help</a>
+                        <a class="nav-link" href="/Tcell_predictor/help/">Help</a>
                         </li>
 
                         <li class="nav-item">
-                        <a class="nav-link" href="/TCR-PEP-Website/templates/example.html/">Example</a>
+                        <a class="nav-link" href="/Tcell_predictor/example/">Example</a>
                         </li>
 
                     </ul>
@@ -42,8 +42,8 @@
         <div class="full_horizontal">
             <form class="form-signin" method="post" action="" enctype="multipart/form-data">
               <div class="text-center mb-4">
-                <img class="mb-4" src="/TCR-PEP-Website/static/fig/Blausen_0625_Lymphocyte_T_cell_(crop).png"  alt="" width="72" height="72">
-                <h1 class="h3 mb-3 font-weight-normal">TCR-Peptide binding predictor</h1>
+                <img class="mb-4" src="/Tcell_predictor/static/fig/Blausen_0625_Lymphocyte_T_cell_(crop).png"  alt="" width="72" height="72">
+                <h1 class="h3 mb-3 font-weight-normal">T cell activation predictor</h1>
                </div>
                 {% if error_message %}
                     <div><label style="color:darkred">bad input-file, choose a different input file</label></div>
