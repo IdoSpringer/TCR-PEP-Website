@@ -2,10 +2,9 @@ import torch
 import sys
 import numpy as np
 import torch.autograd as autograd
-from autoencoder_model import PaddingAutoencoder
 import os
 import csv
-from tcr_ae_pep_lstm_model import AutoencoderLSTMClassifier
+from ae_model import AutoencoderLSTMClassifier
 
 
 def get_lists_from_pairs(pairs_file, max_len):

@@ -1,15 +1,8 @@
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
 import sys
-from random import shuffle
-import time
 import numpy as np
 import torch.autograd as autograd
-from pair_sampling.new_models import SiameseLSTMClassifier, DoubleLSTMClassifier
-import pair_sampling.load_data as d
-from sklearn.metrics import roc_auc_score, roc_curve
+from lstm_model import DoubleLSTMClassifier
 import csv
 import sys
 
