@@ -4,7 +4,7 @@ import numpy as np
 import torch.autograd as autograd
 import os
 import csv
-from ae_model import AutoencoderLSTMClassifier
+from prediction.ae_model import AutoencoderLSTMClassifier
 
 
 def get_lists_from_pairs(pairs_file, max_len):
@@ -146,5 +146,10 @@ def predict(pairs_file, device, ae_file, model_file):
     pass
 
 
+def main(pairs_file):
+    predict(pairs_file, 'cuda:0', 'tcr_autoencoder.pt', 'ae_model.pt')
+    pass
+
+
 if __name__ == '__main__':
-    predict('pairs_example', 'cuda:0', 'tcr_autoencoder.pt', 'ae_model.pt')
+    main(sys.argv[0])

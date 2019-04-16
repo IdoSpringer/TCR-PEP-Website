@@ -3,7 +3,7 @@ from werkzeug.utils import secure_filename
 import os
 import Prediction
 import pandas as pd
-
+from prediction import ae_predict, lstm_predict
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'd9c008b8a2ec6c4cd1371bc27174a889'
@@ -33,7 +33,9 @@ def home():
                 file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
                 file.save(file_path)
 
-                dict_results = Prediction.main(file_path)
+                # dict_results = Prediction.main(file_path)
+                dict_results = ae_predict.main(file_path)
+
                 os.remove(file_path)
 
                 df = pd.DataFrame.from_dict(dict_results, orient='index')

@@ -1,5 +1,5 @@
 import torch
-from tcr_autoencoder import PaddingAutoencoder
+from prediction.tcr_autoencoder import PaddingAutoencoder
 import torch
 import torch.autograd as autograd
 import torch.nn as nn

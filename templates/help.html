@@ -4,40 +4,14 @@
     <! bootstrap css>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="/Tcell_predictor/static/floating-labels.css" rel="stylesheet">
+    <link href="/TCR-PEP-Website/static/floating-labels.css" rel="stylesheet">
 
     <meta charset="UTF-8">
     <title>Help Page</title>
 </head>
 <body>
-    <! Navigation>
-    <div class="base_win">
-
-        <div class="full_horizontal">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-
-                        <li class="nav-item">
-                        <a class="nav-link" href="/Tcell_predictor/home/">Home</a>
-                        </li>
-
-                        <li class="nav-item">
-                        <a class="nav-link" href="/Tcell_predictor/help/">Help</a>
-                        </li>
-
-                        <li class="nav-item">
-                        <a class="nav-link" href="/Tcell_predictor/example/">Example</a>
-                        </li>
-
-                    </ul>
-                </div>
-            </nav>
-        </div>
-
+    {% extends "template.html" %}
+    {% block content %}
         <div class="help_text">
             <h4><b>Instructions for running the T cell activation predictor.</b></h4>
                 <ul>
@@ -45,11 +19,10 @@
                     <li>
                         <h5><b>1. Specify input </b></h5>
                         The input file must be in the same template as the example. (case sensitive)<br>
-                        The file should  be a table with three columns, separated by spaces or tabs.<br>
-                        The first column is the gene name where the mutation occurred e.g: PAFAH1B1, AKT1<br>
-                        The second column is the 9-mer in one-letter amino acid codes in capital.<br>
-                        The third column is the substitution amino acid in the following format: p.L511F
-                        (i.e. position 511 was mutated from L to F).<br><br>
+                        The file should  be a table with two columns, separated by tabs.<br>
+                        The first column is TCRs CDR3-beta sequences, e.g: CASGDGNQAPLF <br>
+                        When using the Autoencoder based model, TCR length should be at the most 28. The model will ignore longer sequences.<br>
+                        The second column is the peptides, e.g: SYIPSAEKI .<br><br>
                     </li>
                     <li>
                         <h5><b>2. Submit to prediction </b></h5>
@@ -61,7 +34,6 @@
                 </ul>
         </div>
 
-    </div>
 
     <! bootstrap >
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -73,5 +45,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+
+    {% endblock %}
 </body>
 </html>
