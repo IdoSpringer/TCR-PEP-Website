@@ -119,14 +119,15 @@ def predict(pairs_file, device, model_file):
         probs = model(padded_tcrs, tcr_lens, padded_peps, pep_lens)
         results.extend([prob.item() for prob in probs])
     results = results[:len(test_tcrs)]
+    result_list = []
     for tcr, pep, prob in zip(tcrs_copy, peps_copy, results):
-        print('\t'.join([tcr, pep, str(prob)]))
-    pass
+        result_list.append([tcr, pep, str(prob)])
+    return result_list
 
 
 def main(pairs_file):
-    predict(pairs_file, 'cuda:0', 'lstm_model.pt')
-    pass
+    results = predict(pairs_file, 'cuda:0', 'prediction/lstm_model.pt')
+    return results
 
 
 if __name__ == '__main__':

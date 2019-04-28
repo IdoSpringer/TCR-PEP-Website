@@ -4,6 +4,8 @@ import os
 import Prediction
 import pandas as pd
 from prediction import ae_predict, lstm_predict
+import csv
+import sys
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'd9c008b8a2ec6c4cd1371bc27174a889'
@@ -34,13 +36,18 @@ def home():
                 file.save(file_path)
 
                 # dict_results = Prediction.main(file_path)
-                dict_results = ae_predict.main(file_path)
+                # results = ae_predict.main(file_path)
+                results = lstm_predict.main(file_path)
 
                 os.remove(file_path)
 
-                df = pd.DataFrame.from_dict(dict_results, orient='index')
-                df.to_csv(os.path.join(app.config['UPLOAD_FOLDER'], 'temp_results.csv'))
-                return send_from_directory(directory=app.config['UPLOAD_FOLDER'], filename='temp_results.csv')
+                with open(app.config['UPLOAD_FOLDER'] + '/results.csv', 'w') as file:
+                    writer = csv.writer(file)
+                    for result in results:
+                        writer.writerow(result)
+                # df = pd.DataFrame.from_dict(dict_results, orient='index')
+                # df.to_csv(os.path.join(app.config['UPLOAD_FOLDER'], 'temp_results.csv'))
+                return send_from_directory(directory=app.config['UPLOAD_FOLDER'], filename='results.csv')
         except:
             error_message = True
 

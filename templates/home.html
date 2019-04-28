@@ -18,7 +18,7 @@
         <div class="full_horizontal">
             <form class="form-signin" method="post" action="" enctype="multipart/form-data">
               <div class="text-center mb-4">
-                <img class="mb-4" src="/TCR-PEP-Website/static/fig/Blausen_0625_Lymphocyte_T_cell_(crop).png" alt="" width="72" height="72">
+                <img class="mb-4" src="{{url_for('static', filename='Blausen_0625_Lymphocyte_T_cell_(crop).png')}}" alt="" width="72" height="72">
                 <h1 class="h3 mb-3 font-weight-normal">TCR-Peptide Binding Predictor</h1>
                </div>
                 {% if error_message %}

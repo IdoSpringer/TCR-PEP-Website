@@ -5,6 +5,9 @@ import torch.autograd as autograd
 import os
 import csv
 from prediction.ae_model import AutoencoderLSTMClassifier
+import sys
+
+# todo: READ AND WRITE TO CSV
 
 
 def get_lists_from_pairs(pairs_file, max_len):
@@ -112,6 +115,7 @@ def predict(pairs_file, device, ae_file, model_file):
     params['emb_dim'] = 10
     params['enc_dim'] = 30
     params['train_ae'] = True
+
     # Load autoencoder params
     checkpoint = torch.load(args['ae_file'])
     params['max_len'] = checkpoint['max_len']
@@ -141,14 +145,15 @@ def predict(pairs_file, device, ae_file, model_file):
         probs = model(tcrs, padded_peps, pep_lens)
         results.extend([prob.item() for prob in probs])
     results = results[:len(tcrs)]
+    result_list = []
     for tcr, pep, prob in zip(tcrs_copy, peps_copy, results):
-        print('\t'.join([tcr, pep, str(prob)]))
-    pass
+        result_list.append([tcr, pep, str(prob)])
+    return result_list
 
 
 def main(pairs_file):
-    predict(pairs_file, 'cuda:0', 'tcr_autoencoder.pt', 'ae_model.pt')
-    pass
+    results = predict(pairs_file, 'cuda:0', 'prediction/tcr_autoencoder.pt', 'prediction/ae_model.pt')
+    return results
 
 
 if __name__ == '__main__':
