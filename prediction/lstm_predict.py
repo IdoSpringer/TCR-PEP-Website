@@ -11,8 +11,9 @@ def get_lists_from_pairs(pairs_file):
     tcrs = []
     peps = []
     with open(pairs_file, 'r') as file:
-        for line in file:
-            tcr, pep = line.strip().split()
+        reader = csv.reader(file)
+        for line in reader:
+            tcr, pep = line
             tcrs.append(tcr)
             peps.append(pep)
     return tcrs, peps
@@ -131,4 +132,5 @@ def main(pairs_file):
 
 
 if __name__ == '__main__':
-    main(sys.argv[0])
+    results = predict(sys.argv[1], 'cuda:0', 'lstm_model.pt')
+    print(results)

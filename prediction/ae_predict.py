@@ -7,15 +7,14 @@ import csv
 from prediction.ae_model import AutoencoderLSTMClassifier
 import sys
 
-# todo: READ AND WRITE TO CSV
-
 
 def get_lists_from_pairs(pairs_file, max_len):
     tcrs = []
     peps = []
     with open(pairs_file, 'r') as file:
-        for line in file:
-            tcr, pep = line.strip().split()
+        reader = csv.reader(file)
+        for line in reader:
+            tcr, pep = line
             if len(tcr) > max_len:
                 continue
             tcrs.append(tcr)
@@ -157,4 +156,5 @@ def main(pairs_file):
 
 
 if __name__ == '__main__':
-    main(sys.argv[0])
+    results = predict(sys.argv[1], 'cuda:0', 'tcr_autoencoder.pt', 'ae_model.pt')
+    print(results)

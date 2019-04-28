@@ -15,7 +15,7 @@
     {% block content %}
 
         <div class="help_text">
-            <h4><b>The input and output should be in the following format</b></h4>
+            <h4><b>The input and output should be in the following .csv format</b></h4>
                 <ul>
                     <br>
                     <li>
@@ -25,66 +25,55 @@
                           </thead>
                           <tbody>
                             <tr>
-                              <th scope="row">1</th> <td>PAFAH1B1</td> <td>DMTIKLWDF</td> <td>p.E183K</td>
+                              <th scope="row">1</th> <td>CASSQGLAGDEQF</td> <td>EIYKRWII</td>
                             </tr>
                             <tr>
-                              <th scope="row">2</th> <td>ABCF3</td> <td>FYYDPKHVI</td> <td>p.L511F</td>
+                              <th scope="row">2</th> <td>CASSEVGKGNQPQHF</td> <td>LPRRSGAAGA</td>
                             </tr>
                             <tr>
-                              <th scope="row">3</th> <td>TFDP2</td> <td>FLTPNSHQS</td> <td>A406T</td>
+                              <th scope="row">3</th> <td>CASSLSTSSRNYGYTF</td> <td>LPRRSGAAGA</td>
                             </tr>
                             <tr>
-                              <th scope="row">4</th> <td>ZMYM4</td> <td>HEVNYQNVV</td> <td>H203Y</td>
+                              <th scope="row">4</th> <td>CASTQEPGELFF</td> <td>GLCTLVAML</td>
                             </tr>
                             <tr>
-                              <th scope="row">5</th> <td>FLNA</td> <td>CVRVSGQGL</td> <td>R2049C</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">6</th> <td>GNB5</td> <td>RVSTLRVSL</td> <td>P377L</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">7</th> <td>KIF16B</td> <td>APARLERRH</td> <td>L1020P</td>
+                              <th scope="row">5</th> <td>CASGPGSSYNEQFF</td> <td>GILGFVFTL</td>
                             </tr>
                           </tbody>
                         </table>
                         <br>
                     </li>
                     <li>
-                        <h5><b>The output of the samples above will be presented in the next format: </b></h5>
+                        <h5><b>The output of the samples above will be presented in the next .csv format: </b></h5>
                                                 <table class="table">
                           <thead>
                           </thead>
                           <tbody>
                             <tr>
-                                <td>DMTIKLWDF</td> <td>0.376194506318</td>
+                                <td>CASSQGLAGDEQF</td> <td>EIYKRWII</td> <td>0.9733766913414001</td>
                             </tr>
                             <tr>
-                                <td>FYYDPKHVI</td> <td>0.504479732796</td>
+                                <td>CASSEVGKGNQPQHF</td> <td>LPRRSGAAGA</td> <td>0.9995043277740479</td>
                             </tr>
                             <tr>
-                                <td>FLTPNSHQS</td> <td>0.444512620677</td>
+                                <td>CASSLSTSSRNYGYTF</td> <td>LPRRSGAAGA</td> <td>0.003724311711266637</td>
                             </tr>
                             <tr>
-                                <td>HEVNYQNVV</td> <td>0.335754378886</td>
+                                <td>CASTQEPGELFF</td> <td>GLCTLVAML</td> <td>0.9533857703208923</td>
                             </tr>
                             <tr>
-                                <td>CVRVSGQGL</td> <td>0.610453914808</td>
-                            </tr>
-                            <tr>
-                                <td>RVSTLRVSL</td> <td>0.508901283823</td>
-                            </tr>
-                            <tr>
-                                <td>APARLERRH</td> <td>0.475192620009</td>
+                                <td>CASGPGSSYNEQFF</td> <td>GILGFVFTL</td> <td>0.9999375343322754</td>
                             </tr>
                           </tbody>
                         </table>
                         <br>
                     </li>
                     <li>
-                        <h5><a href="{{url_for('download_example')}}" target="_blank">Download Example</a></h5>
+                        <h5><a href="{{url_for('download_example')}}" target="_blank">Download example data</a></h5>
                         <br>
-                        The left column will be the peptides sequences and on the right column will be the score for
-                        T cell activation To download the results click on "Download Example"
+                        The left and middle columns will be the TCRs and the peptides sequences.<br>
+                        The right column will be the score for the TCR-peptide binding.<br>
+                        To download an extended example click on "Download Example data".
                     </li>
                 </ul>
         </div>

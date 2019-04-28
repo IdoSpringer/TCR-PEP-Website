@@ -10,27 +10,32 @@
     <meta charset="UTF-8">
     <title>Help Page</title>
 </head>
-<body>floating-labels.css
+<body>
     {% extends "template.html" %}
     {% block content %}
         <div class="help_text">
-            <h4><b>Instructions for running the T cell activation predictor.</b></h4>
+            <h4><b>Instructions for running the TCR-Peptide binding predictor</b></h4>
                 <ul>
                     <br>
                     <li>
-                        <h5><b>1. Specify input </b></h5>
-                        The input file must be in the same template as the example. (case sensitive)<br>
-                        The file should  be a table with two columns, separated by tabs.<br>
-                        The first column is TCRs CDR3-beta sequences, e.g: CASGDGNQAPLF <br>
-                        When using the Autoencoder based model, TCR length should be at the most 28. The model will ignore longer sequences.<br>
-                        The second column is the peptides, e.g: SYIPSAEKI .<br><br>
+                        <h5><b>1. Specify input</b></h5>
+                        The input file must be in .csv format as in the example. (case sensitive)<br>
+                        The file should be a table with two columns,<br>
+                        The first column is the TCRs CDR3-beta sequences.<br>
+                        When using the Autoencoder based model, notice that TCR length should be at the most 28. The model will ignore longer sequences.<br>
+                        The second column is for the peptides.<br><br>
                     </li>
                     <li>
-                        <h5><b>2. Submit to prediction </b></h5>
-                        Click on the submit button to start the prediction<br><br>
+                        <h5><b>2. Choose model type </b></h5>
+                        Choose the model for the prediction,<br>
+                        The Autoencoder based model or the LSTM based model.<br><br>
                     </li>
                     <li>
-                        <h5><b>3. Download results </b></h5>
+                        <h5><b>3. Submit to prediction </b></h5>
+                        Click on the submit button to start the prediction.<br><br>
+                    </li>
+                    <li>
+                        <h5><b>4. Download results </b></h5>
                     </li>
                 </ul>
         </div>

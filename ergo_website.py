@@ -1,8 +1,6 @@
 from flask import Flask, render_template, send_file, flash, request, redirect, url_for, send_from_directory
 from werkzeug.utils import secure_filename
 import os
-import Prediction
-import pandas as pd
 from prediction import ae_predict, lstm_predict
 import csv
 import sys
@@ -35,9 +33,11 @@ def home():
                 file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
                 file.save(file_path)
 
-                # dict_results = Prediction.main(file_path)
-                # results = ae_predict.main(file_path)
-                results = lstm_predict.main(file_path)
+                model = request.form['model']
+                if model == 'ae':
+                    results = ae_predict.main(file_path)
+                elif model == 'lstm':
+                    results = lstm_predict.main(file_path)
 
                 os.remove(file_path)
 
@@ -45,8 +45,6 @@ def home():
                     writer = csv.writer(file)
                     for result in results:
                         writer.writerow(result)
-                # df = pd.DataFrame.from_dict(dict_results, orient='index')
-                # df.to_csv(os.path.join(app.config['UPLOAD_FOLDER'], 'temp_results.csv'))
                 return send_from_directory(directory=app.config['UPLOAD_FOLDER'], filename='results.csv')
         except:
             error_message = True
