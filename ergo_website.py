@@ -6,9 +6,10 @@ import csv
 import sys
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'd9c008b8a2ec6c4cd1371bc27174a889'
+app.config['SECRET_KEY'] = b"\x82\x95\xef\x02\x1c\x08bz'\xc40\x1a\xed4\xdf\xe0"
+
 app.config['UPLOAD_FOLDER'] = "upload"
-# app.config['baseURI'] = "http://peptibase.cs.biu.ac.il/Tcell_predictor/"
+app.config['baseURI'] = "http://peptibase.cs.biu.ac.il/ERGO/"
 
 @app.route("/")
 @app.route("/home/", methods=['GET', 'POST'])
@@ -64,7 +65,7 @@ def example():
 
 @app.route("/download_example/")
 def download_example():
-    return send_from_directory(directory="static", filename="input-try.txt")
+    return send_from_directory(directory="static", filename="pairs_example.csv")
 
 
 if __name__ == "__main__":
