@@ -15,11 +15,11 @@
     {% block content %}
 
         <div class="help_text">
-            <h4><b>The input and output should be in the following .csv format</b></h4>
+            <h4><b>The input and output should be in the following .csv format:</b></h4>
                 <ul>
                     <br>
                     <li>
-                        <h5><b>Input files</b></h5><br>
+                        <h5><b>Input file - every row must have a TCR and a peptide</b></h5><br>
                         <table class="table">
                           <thead>
                           </thead>
@@ -50,19 +50,19 @@
                           </thead>
                           <tbody>
                             <tr>
-                                <td>CASSQGLAGDEQF</td> <td>EIYKRWII</td> <td>0.9733766913414001</td>
+                                <td>CASSQGLAGDEQF</td> <td>EIYKRWII</td> <td>0.3809</td>
                             </tr>
                             <tr>
-                                <td>CASSEVGKGNQPQHF</td> <td>LPRRSGAAGA</td> <td>0.9995043277740479</td>
+                                <td>CASSEVGKGNQPQHF</td> <td>LPRRSGAAGA</td> <td>0.2262</td>
                             </tr>
                             <tr>
-                                <td>CASSLSTSSRNYGYTF</td> <td>LPRRSGAAGA</td> <td>0.003724311711266637</td>
+                                <td>CASSLSTSSRNYGYTF</td> <td>LPRRSGAAGA</td> <td>0.0687</td>
                             </tr>
                             <tr>
-                                <td>CASTQEPGELFF</td> <td>GLCTLVAML</td> <td>0.9533857703208923</td>
+                                <td>CASTQEPGELFF</td> <td>GLCTLVAML</td> <td>0.0174</td>
                             </tr>
                             <tr>
-                                <td>CASGPGSSYNEQFF</td> <td>GILGFVFTL</td> <td>0.9999375343322754</td>
+                                <td>CASGPGSSYNEQFF</td> <td>GILGFVFTL</td> <td>0.5640</td>
                             </tr>
                           </tbody>
                         </table>
@@ -72,8 +72,8 @@
                         <h5><a href="{{url_for('download_example')}}" target="_blank">Download example data</a></h5>
                         <br>
                         The left and middle columns will be the TCRs and the peptides sequences.<br>
-                        The right column will be the score for the TCR-peptide binding.<br>
-                        To download an extended example click on "Download Example data".
+                        The right column will be the predicted binding score for every TCR-peptide pair.<br>
+                        To download an extended example, click on "Download Example data".
                     </li>
                 </ul>
         </div>

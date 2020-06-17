@@ -24,15 +24,19 @@
                 {% if error_message %}
                 <div><label style="color:darkred"><b>Bad input-file, please choose a different input file</b></label></div>
                 {% else %}
-                <label for="exampleFormControlFile1"><b>Upload an input file:</b></label>
+                <label for="exampleFormControlFile1"><b>Upload an input file (see help for the right format):</b></label>
                 {% endif %}
                 <input type="file" name="input_file" class="form-control-file" id="exampleFormControlFile1">
-                <label for="exampleFormControlFile2"><b>Choose the model type:</b></label><br>
-                <input type="radio" name="model" value="ae">Autoencoder based model<br>
-                <input type="radio" name="model" value="lstm">LSTM based model<br>
+                <label for="exampleFormControlFile2"><b>Model Type:</b></label><br>
+                <input type="radio" name="model_type" value="ae">Autoencoder based model<br>
+                <input type="radio" name="model_type" value="lstm">LSTM based model<br>
+                <label for="exampleFormControlFile2"><b>Training Database:</b></label><br>
+                <input type="radio" name="dataset" value="mcpas">McPAS<br>
+                <input type="radio" name="dataset" value="vdjdb">VDJdb<br>
+
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Predict</button>
 
-              <p class="mt-5 mb-3 text-muted text-center">&copy; Louzoun-Lab 2019</p>
+              <p class="mt-5 mb-3 text-muted text-center">&copy; Louzoun-Lab 2020</p>
             </form>
         </div>
 

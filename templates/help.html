@@ -14,25 +14,25 @@
     {% extends "template.html" %}
     {% block content %}
         <div class="help_text">
-            <h4><b>Instructions for running the TCR-Peptide binding predictor</b></h4>
+            <h4><b>Instructions for using ERGO, the TCR-Peptide binding predictor</b></h4>
                 <ul>
                     <br>
                     <li>
                         <h5><b>1. Specify input</b></h5>
                         The input file must be in .csv format as in the example. (case sensitive)<br>
                         The file should be a table with two columns,<br>
-                        The first column is the TCRs CDR3-beta sequences.<br>
-                        When using the Autoencoder based model, notice that TCR length should be at the most 28. The model will ignore longer sequences.<br>
-                        The second column is for the peptides.<br><br>
+                        The first column is for the TCRs CDR3-beta sequences.<br>
+                        When using the Autoencoder based model, notice that the TCR length should be at most 28. The model will ignore longer TCR sequences.<br>
+                        The second column is for the peptides. (No length limit)<br><br>
                     </li>
                     <li>
-                        <h5><b>2. Choose model type </b></h5>
-                        Choose the model for the prediction,<br>
-                        The Autoencoder based model or the LSTM based model.<br><br>
+                        <h5><b>2. Model Type </b></h5>
+                        Choose the model for the prediction.<br>
+                        ERGO uses two distinct models: the Autoencoder based model or the LSTM based model.<br><br>
                     </li>
                     <li>
                         <h5><b>3. Submit to prediction </b></h5>
-                        Click on the submit button to start the prediction.<br><br>
+                        Click on the 'predict' button to get the binding prediction scores.<br><br>
                     </li>
                     <li>
                         <h5><b>4. Download results </b></h5>
