@@ -13,6 +13,7 @@
 <body>
     {% extends "template.html" %}
     {% block content %}
+
         <div class="help_text">
             <h4><b>Instructions for using ERGO, the TCR-Peptide binding predictor</b></h4>
                 <ul>
@@ -21,9 +22,13 @@
                         <h5><b>1. Specify input</b></h5>
                         The input file must be in .csv format as in the example. (case sensitive)<br>
                         The file should be a table with two columns,<br>
-                        The first column is for the TCRs CDR3-beta sequences.<br>
-                        When using the Autoencoder based model, notice that the TCR length should be at most 28. The model will ignore longer TCR sequences.<br>
-                        The second column is for the peptides. (No length limit)<br><br>
+                        The first column is for the TCRs CDR3-beta sequences, and the second column is for the peptides.<br>
+                        ERGO expects TCR sequences to begin with Cysteine ('C') and finish with Phenylalanine ('F').<br>
+                        Make sure your file contain only upper-cased amino-acid letters, without any other characters as '*', 'X' or non-ascii characters.<br>
+                        The model prediction will crash for wrong input files.<br>
+                        When using the Autoencoder based model, notice that the TCR length should be at most 28. The model will ignore longer TCR sequences. There is no length limit on the peptides.<br>
+                        We recommend predicting up to 50,000 pairs at a time. For longer files, you can use
+                        <a href="https://github.com/louzounlab/ERGO">our productive github repository</a> or split your file into chunks.<br><br>
                     </li>
                     <li>
                         <h5><b>2. Model Type </b></h5>
